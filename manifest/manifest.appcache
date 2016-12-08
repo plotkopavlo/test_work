@@ -1,10 +1,10 @@
 CACHE MANIFEST
-/css/style.css
-/img/cat1.jpg
-/img/cat2.jpg
-/img/cat3.jpg
-/img/dog4.jpg
-/js/jquery-3.1.1.js
-/js/javascript.js
-/json/cities.json 
-/json/countris.json
+../css/style.css
+../img/cat1.jpg
+../img/cat2.jpg
+../img/cat3.jpg
+../img/dog4.jpg
+../js/jquery-3.1.1.js
+../js/javascript.js
+../json/cities.json 
+../json/countris.json
