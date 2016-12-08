@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ru" manifest="manifest/manifest.appcache" >
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<title>Form</title>
+	
+	<link rel="stylesheet" href="css/style.css">
+	
+	<link rel="preload" href="css/font/OpenSans-Regular.woff2" crossorigin>
+	<link rel="preload" href="css/font/OpenSans-Bold.woff2" crossorigin>
+	<link rel="preload" href="img/sprite-arrows.png" as="image">
+	<link rel="preload" href="img/cat1.jpg" as="image">
+	<link rel="preload" href="img/cat2.jpg" as="image">
+	<link rel="preload" href="img/cat3.jpg" as="image">
+	<link rel="preload" href="img/dog4.jpg" as="image">
+
+	<script src="js/jquery-3.1.1.js" defer></script>
+	<script src="js/javascript.js" defer></script>
+
+</head>
+<body class="body--flex">
+	<section class="section-form" id= "container-form">
+		<h1 class="section-form__title">Форма регистрации</h1>
+		<div class="navigaite navigaite--undisplay" id="navigaite">
+			<nav class="nav">
+				<ul class="nav__list">
+					<li class="nav__item">
+						<button class="nav__button nav__button--active nav__button--passing" id="nav__button-0">
+							<span class="nav__desc">Имя и e-mail</span>
+							<span class="nav__number">1</span>
+						</button>
+					</li>
+					<li class="nav__item">
+						<button class="nav__button nav__button--not-passed" id="nav__button-1">
+							<span class="nav__desc"> страна и город </span>
+							<span class="nav__number">2</span>
+						</button>
+					</li>
+					<li class="nav__item">
+						<button class="nav__button nav__button--not-passed" id="nav__button-2">
+							<span class="nav__desc">социальные сети</span>
+							<span class="nav__number">3</span>
+						</button>
+					</li>
+					<li class="nav__item">
+						<button class="nav__button nav__button--not-passed" id="nav__button-3">
+							<span class="nav__desc"> любимый котик</span>
+							<span class="nav__number">4</span>
+						</button>
+					</li>
+				</ul>
+			</nav>
+		</div>
+		<div class="container-form" id="section-form" >
+		
+			<form action="" class="form" id="SignupForm">
+				<fieldset class="form__fieldest">
+					<legend class="form__legend"> 1. Введите имя и e-mail</legend>
+
+					<label for="form__name" class="form__label">Ваше имя</label>
+					<input type="text" placeholder="Имя" class="form__input-data" id="form__name" required autofocus>
+					
+
+
+					<label for="form__email" class="form__label">Ваш e-mail</label>
+					<input type="email" placeholder="E-mail" class="form__input-data" id="form__email" required>
+					
+				</fieldset>
+
+				<fieldset class="form__fieldest">
+					<legend class="form__legend" >2. Выберите страну и город</legend>
+
+					<label for="form__country" class="form__label">Ваша страна</label>
+					<select name="form__country"  id="form__country" class="form__input-data" required>
+						<option value="1">Ukraine</option>
+					</select>	
+
+					<label for="form__city" class="form__label">Ваш город</label>
+					<select name="form__city" id="form__city" class="form__input-data"  required>
+						<option value="100">Львов</option>
+						<option value="106">Харьков</option>
+					</select>
+					
+				</fieldset>
+				<fieldset class="form__fieldest">
+					<legend class="form__legend"> 3. Отметьте социальные сети</legend>
+					
+					<ul class="form__list-social">
+						<li class="form__item-social">
+							<input type="checkbox" class="form__checkbox-social" name="form__social" id="form__social-facebook">
+							<label class="form__social-label" for="form__social-facebook">Facebook</label>
+							<input type="url" placeholder="Ваша страница в Facebook " name="form__social-url" class="form__social-url" id="form__social-url-1">
+						</li>
+						<li class="form__item-social">
+							<input type="checkbox" class="form__checkbox-social" name="form__social" id="form__social-vk">
+							<label class="form__social-label" for="form__social-vk" >Вконтакте</label>
+							<input type="url" placeholder="Ваша страница в Вконтакте" name="form__social-url" class="form__social-url" id="form__social-url-2">
+						</li>
+						<li class="form__item-social">
+							<input type="checkbox" class="form__checkbox-social" name="form__social" id="form__social-twitter">
+							<label class="form__social-label" for="form__social-twitter"> Twitter </label>
+							<input type="url" placeholder="Ваша страница в Twitter" name="form__social-url" class="form__social-url" id="form__social-url-3">
+						</li>
+						<li class="form__item-social">
+							<input type="checkbox" class="form__checkbox-social" name="form__social" id="form__social-ok">
+							<label class="form__social-label" for="form__social-ok"> Одноклассники </label>
+							<input type="url" placeholder="Ваша страница в Одноклассниках" name="form__social-url" class="form__social-url" id="form__social-url-4">
+						</li>
+					</ul>
+				</fieldset>
+
+				<fieldset class="form__fieldest">
+					<legend class="form__legend">4. Выберите любимого котика</legend>
+					
+					<input type="radio" class="form__radio" name="form__cat" id="form__radio-1"  checked>
+					<input type="radio" class="form__radio" name="form__cat" id="form__radio-2">
+					<input type="radio" class="form__radio" name="form__cat" id="form__radio-3">
+					<input type="radio" class="form__radio" name="form__cat" id="form__radio-4">
+					<div class="form__container-label">
+						<label class="form__label-cat" for="form__radio-1"> 
+							<img src="img/cat1.jpg" class="form__image" alt="Рыжий пиратский котик"> 
+						</label>
+						<label class="form__label-cat" for="form__radio-2">
+							<img src="img/cat2.jpg" class="form__image" alt="милашный рыжий котик">
+						</label>
+						<label class="form__label-cat" for="form__radio-3"> 
+							<img src="img/cat3.jpg" class="form__image" alt="серенький котиу в засаде">
+						</label>
+						<label class="form__label-cat" for="form__radio-4">
+							<img src="img/dog4.jpg" class="form__image" alt="задумчивый песик">
+						</label>
+					</div>
+					<div class="form__dog-errore" id="form__error"></div>
+					<button class="form__submite" id="form__submite">
+						<b class="form__submite-text">Завершить</b>
+					</button>
+				</fieldset>
+			</form>
+		</div>
+	</section>
+
+	<section class="card card--undisplay" id="card">
+			<h1 class="card__title">Персональная карточка</h1>
+			<div class="card__person-card">				
+				
+				<div class="card__container">
+					<div class="card__person-inf">
+						<div class="card__information">
+							<span class="card__name" id="card__name">asdassad	</span> <br>
+							<span class="card__email" id="card__email">asdsada</span>
+						</div>
+						<div class="card__geoposition">
+							<span class="card__geotext" id="card__geotext">asdsa</span>
+						</div>
+						<div class="card__social">
+							<div class="card__social-block card__social-block--undisplay" id="card__social-1">
+								<a class="card__social-name" href="#">Facebook: </a>
+								<span class="card__social-url" id="card__social-url-1" >asdsad</span>
+							</div>
+							<div class="card__social-block card__social-block--undisplay" id="card__social-2">
+								<a class="card__social-name" href="#">Vk: </a>
+								<span class="card__social-url" id="card__social-url-2">asdsa</span>
+							</div>
+							<div class="card__social-block card__social-block--undisplay" id="card__social-3">
+								<a class="card__social-name" href="#">Twitter: </a>
+								<span class="card__social-url" id="card__social-url-3">asdsa</span>
+							</div>
+							<div class="card__social-block card__social-block--undisplay" id="card__social-4">
+								<a class="card__social-name" href="#">Одноклассники: </a>
+								<span class="card__social-url" id="card__social-url-4">asda</span>
+							</div>
+						</div>
+
+
+
+					</div>
+					<div class="card__photo">
+						<img src="img/cat1.jpg" alt="не загрузилось(((" class="card__image" id="card__image">
+					</div>
+				</div>
+			</div>
+			<div class="card__conrol">
+				<button type="button" class="card__button" id="card__button">
+					<span class="card__button-text">Пройти заново</span>
+				</button>
+			</div>
+		</section>
+</body>
+</html>
