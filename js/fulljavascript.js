@@ -428,7 +428,7 @@ function isValidEmailAddress(emailAddress) {
 
 //SwitchFormToCard works without Jq. It switches Form to Card
 function SwitchFormToCard(){
-	document.getElementById("container-form").classList.add("container-form--undisplay");
+	document.getElementById("section-form").classList.add("section-form--undisplay");
 	document.getElementById("card").classList.remove("card--undisplay");
 	document.body.classList.add("body--background-card");
 	FillDataInCard (); 
@@ -461,7 +461,7 @@ function FillDataInCard (){
 
 // this function cleans all style in button and cleans inputdate. But doesn't clean geodata 
 document.getElementById("card__button").onclick = function  (){
-	document.getElementById("container-form").classList.remove("container-form--undisplay");
+	document.getElementById("section-form").classList.remove("section-form--undisplay");
 	document.getElementById("card").classList.add("card--undisplay");
 	document.body.classList.remove("body--background-card");
 
