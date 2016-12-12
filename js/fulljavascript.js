@@ -90,32 +90,18 @@ SelectCountry.onchange = function (){
 
 //--------- Section create step by step form --------------------
 
-document.getElementById("navigaite").classList.remove("navigaite--undisplay");
-
-var steps = $("#SignupForm fieldset");
-var count = steps.length;
-var NAVList = document.getElementsByClassName("nav__button");
-
-steps.each(function(i) {
-	$(this).wrap("<div class='form__step' id='form__step" + i + "' data-passed='false'></div>");
-	$("#form__step" + i).append("<div class='form__control' id='form__step" + i + "commands'></div>");
-	//$(this).parentElement.appendChild(document.createElement('div').setAttribute("id", "'form__step" + i + "commands'"));
-	if (i == 0) {
-		createPrevButton(i);
-		createNextButton(i);
+function FormStepByStep(){
+	document.getElementById("navigaite").classList.remove("navigaite--undisplay");
+let 
+	FormStepDisplay = document.getElementsByClassName("form__step"),
+	FormControl = document.getElementsByClassName("form__control");
+	for(let i = 1; i < FormStepDisplay.length; i++)
+		FormStepDisplay[i].classList.add("form__step--undisplay");
+	for(let i = 0; i < FormControl.length; i++)
+		FormControl[i].classList.remove("form__control--undisplay");
 
 	}
-	else if (i == count - 1) {
-		document.getElementById("form__step" + i).classList.add("form__step--undisplay");
-		createPrevButton(i);  
-		createSubmiteButton(i);
-	}
-	else {
-		document.getElementById("form__step" + i).classList.add("form__step--undisplay");
-		createPrevButton(i);
-		createNextButton(i);
-		}
-});
+
 
 // RewriteClass.. works without JQ. It stiches class in nav__button
 function RewriteClassPrev(i){
@@ -153,14 +139,12 @@ function RewriteClassSubmite(i){
 
 
 
-function createPrevButton(i) {
+function ClickPrevButton() {
 
-	var stepName = "form__step" + i;
-
-	$("#" + stepName + "commands").append("<button type='button' class='form__button form__button--prev' id='" + stepName + "Prev' class='prev'> <span class='form__icon-svg form__icon-svg--prev'> </span> <span class='form__button-text'>  Предыдущий </span></button>");
-	if(i !==0)
-		document.getElementById(stepName + "Prev").onclick =function(e) {
-			document.getElementById(stepName).classList.add("form__step--undisplay");
+	let PrevButtons  = document.getElementsByClassName("form__button--prev");
+	for(let i = 1; i < PrevButtons.length; i++)
+		 PrevButtons[i]=function(e) {
+			document.getElementById("form__step" + i).classList.add("form__step--undisplay");
 
 			document.getElementById("form__step" + (i - 1)).classList.remove("form__step--undisplay");
 
@@ -168,42 +152,26 @@ function createPrevButton(i) {
 		};
 }
 
-function createNextButton(i) {
-	/*var 
-		ButtonNext =document.createElement('button');
-		
-		ButtonNext.type ="button";
-		ButtonNext.id="form__step" + i + "Next";
-		ButtonNext.classList.add("form__button");
-		ButtonNext.classList.add("form__button--next");
-		ButtonNext.onclick  = function(e) {
-			if (valid (i)){
+function ClickNextButton() {
+
+
+	let NextButtons = document.getElementsByClassName("form__button--next");
+
+	for(let i = 0; i < NextButtons.length; i++)
+		 NextButtons[i].onclick =function(e) {
+			if (valid(i)){
 				document.getElementById("form__step" + i).classList.add("form__step--undisplay");
 				document.getElementById("form__step" + (i + 1)).classList.remove("form__step--undisplay");
 				RewriteClassNext(i);
-			}else{}
+			}
+
 		};
-
-		document.getElementById("form__step" + i +"commands").appendChild(ButtonNext);*/
-		var stepName = "form__step" + i;
-	$("#" + stepName + "commands").append("<button type='button' class='form__button form__button--next' id='" + stepName + "Next'> <span class='form__icon-svg form__icon-svg--next'> </span> <span class='form__button-text'> Следующий </span></button>");
-	document.getElementById(stepName + "Next").onclick =function(e) {
-		if (valid(i)){
-			document.getElementById(stepName).classList.add("form__step--undisplay");
-			document.getElementById("form__step" + (i + 1)).classList.remove("form__step--undisplay");
-			RewriteClassNext(i);
-		}
-
-	};
-}
+	}
 // createSubmiteButton creates button submit and hide html button submite.
 
-function createSubmiteButton(i) {
+function ClickSubmiteButton() {
 	document.getElementById("form__submite").classList.add("form__submite--undisplay");
 
-	var stepName = "form__step" + i;
-	$("#" + stepName + "commands").append("<button type='button' class='form__submite' id='form__submite-js'> <span class='form__submite-text'> Завершить </span></button>");
-	
 	document.getElementById("form__submite-js").onclick =function(e) {
 		console.log("ad");
 		if(valid(i)){
@@ -216,7 +184,10 @@ function createSubmiteButton(i) {
 		
 	};
 }
-
+FormStepByStep()
+ClickPrevButton();
+ClickNextButton();
+ClickSubmiteButton()
 //--------- end  of Section create step by step form --------------------
 
 

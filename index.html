@@ -15,7 +15,6 @@
 	<link rel="preload" href="img/cat3.jpg" as="image">
 	<link rel="preload" href="img/dog4.jpg" as="image">
 
-	<script src="js/jquery-3.1.1.js" defer></script>
 	<script src="js/fulljavascript.js" defer></script>
 
 </head>
@@ -52,7 +51,9 @@
 				</ul>
 			</nav>
 		</div>
-			<form action="" class="form" id="SignupForm">
+		<form action="" class="form" id="SignupForm">
+
+			<div class="form__step" id="form__step0" data-passed="false">
 				<fieldset class="form__fieldest">
 					<legend class="form__legend"> 1. Введите имя и e-mail</legend>
 
@@ -63,9 +64,21 @@
 
 					<label for="form__email" class="form__label">Ваш e-mail</label>
 					<input type="email" placeholder="E-mail" class="form__input-data" id="form__email" required>
-					
 				</fieldset>
-
+				
+				<div class="form__control form__control--undisplay" id="form__step0commands">
+					<button type="button" class="form__button form__button--prev" id="form__step0Prev">
+						<span class='form__icon-svg form__icon-svg--prev'> </span> 
+						<span class='form__button-text'>  Предыдущий </span> 
+					</button>
+					<button type="button" class="form__button form__button--next" id="form__step0Next"> 
+						<span class='form__icon-svg form__icon-svg--next'> </span> 
+						<span class='form__button-text'> Следующий </span>
+					</button>
+				</div>
+			</div>
+			
+			<div class="form__step " id="form__step1" data-passed="false">
 				<fieldset class="form__fieldest">
 					<legend class="form__legend" >2. Выберите страну и город</legend>
 
@@ -78,9 +91,22 @@
 					<select name="form__city" id="form__city" class="form__input-data"  required>
 						<option value="100">Львов</option>
 						<option value="106">Харьков</option>
-					</select>
-					
+					</select>	
 				</fieldset>
+
+				<div class="form__control form__control--undisplay" id="form__step1commands">
+					<button type="button" class="form__button form__button--prev" id="form__step1Prev">
+						<span class='form__icon-svg form__icon-svg--prev'> </span> 
+						<span class='form__button-text'>  Предыдущий </span> 
+					</button>
+					<button type="button" class="form__button form__button--next" id="form__step1Next"> 
+						<span class='form__icon-svg form__icon-svg--next'> </span> 
+						<span class='form__button-text'> Следующий </span>
+					</button>
+				</div>
+			</div>
+			
+			<div class="form__step " id="form__step2" data-passed="false">	
 				<fieldset class="form__fieldest">
 					<legend class="form__legend"> 3. Отметьте социальные сети</legend>
 					
@@ -108,6 +134,19 @@
 					</ul>
 				</fieldset>
 
+				<div class="form__control form__control--undisplay" id="form__step2commands">
+					<button type="button" class="form__button form__button--prev" id="form__step2Prev">
+						<span class='form__icon-svg form__icon-svg--prev'> </span> 
+						<span class='form__button-text'>  Предыдущий </span> 
+					</button>
+					<button type="button" class="form__button form__button--next" id="form__step2Next"> 
+						<span class='form__icon-svg form__icon-svg--next'> </span> 
+						<span class='form__button-text'> Следующий </span>
+					</button>
+				</div>
+			</div>
+
+			<div class="form__step " id="form__step3" data-passed="false">
 				<fieldset class="form__fieldest">
 					<legend class="form__legend">4. Выберите любимого котика</legend>
 					
@@ -134,54 +173,66 @@
 						<b class="form__submite-text">Завершить</b>
 					</button>
 				</fieldset>
-			</form>
+
+				<div class="form__control form__control--undisplay" id="form__step3commands">
+					<button type="button" class="form__button form__button--prev" id="form__step3Prev">
+						<span class='form__icon-svg form__icon-svg--prev'> </span> 
+						<span class='form__button-text'>  Предыдущий </span> 
+					</button>
+					<button type='button' class='form__submite' id='form__submite-js'> 
+						<span class='form__submite-text'> Завершить </span>
+					</button>
+				</div>
+
+			</div>
+		</form>
 	</section>
 
 	<section class="card card--undisplay" id="card">
-			<h1 class="card__title">Персональная карточка</h1>
-			<div class="card__person-card">				
-				
-				<div class="card__container">
-					<div class="card__person-inf">
-						<div class="card__information">
-							<span class="card__name" id="card__name">asdassad	</span> <br>
-							<span class="card__email" id="card__email">asdsada</span>
-						</div>
-						<div class="card__geoposition">
-							<span class="card__geotext" id="card__geotext">asdsa</span>
-						</div>
-						<div class="card__social">
-							<div class="card__social-block card__social-block--undisplay" id="card__social-1">
-								<a class="card__social-name" href="#">Facebook: </a>
-								<span class="card__social-url" id="card__social-url-1" >asdsad</span>
-							</div>
-							<div class="card__social-block card__social-block--undisplay" id="card__social-2">
-								<a class="card__social-name" href="#">Vk: </a>
-								<span class="card__social-url" id="card__social-url-2">asdsa</span>
-							</div>
-							<div class="card__social-block card__social-block--undisplay" id="card__social-3">
-								<a class="card__social-name" href="#">Twitter: </a>
-								<span class="card__social-url" id="card__social-url-3">asdsa</span>
-							</div>
-							<div class="card__social-block card__social-block--undisplay" id="card__social-4">
-								<a class="card__social-name" href="#">Одноклассники: </a>
-								<span class="card__social-url" id="card__social-url-4">asda</span>
-							</div>
-						</div>
+		<h1 class="card__title">Персональная карточка</h1>
+		<div class="card__person-card">				
 
-
-
+			<div class="card__container">
+				<div class="card__person-inf">
+					<div class="card__information">
+						<span class="card__name" id="card__name">asdassad	</span> <br>
+						<span class="card__email" id="card__email">asdsada</span>
 					</div>
-					<div class="card__photo">
-						<img src="img/cat1.jpg" alt="не загрузилось(((" class="card__image" id="card__image">
+					<div class="card__geoposition">
+						<span class="card__geotext" id="card__geotext">asdsa</span>
 					</div>
+					<div class="card__social">
+						<div class="card__social-block card__social-block--undisplay" id="card__social-1">
+							<a class="card__social-name" href="#">Facebook: </a>
+							<span class="card__social-url" id="card__social-url-1" >asdsad</span>
+						</div>
+						<div class="card__social-block card__social-block--undisplay" id="card__social-2">
+							<a class="card__social-name" href="#">Vk: </a>
+							<span class="card__social-url" id="card__social-url-2">asdsa</span>
+						</div>
+						<div class="card__social-block card__social-block--undisplay" id="card__social-3">
+							<a class="card__social-name" href="#">Twitter: </a>
+							<span class="card__social-url" id="card__social-url-3">asdsa</span>
+						</div>
+						<div class="card__social-block card__social-block--undisplay" id="card__social-4">
+							<a class="card__social-name" href="#">Одноклассники: </a>
+							<span class="card__social-url" id="card__social-url-4">asda</span>
+						</div>
+					</div>
+
+
+
+				</div>
+				<div class="card__photo">
+					<img src="img/cat1.jpg" alt="не загрузилось(((" class="card__image" id="card__image">
 				</div>
 			</div>
-			<div class="card__conrol">
-				<button type="button" class="card__button" id="card__button">
-					<span class="card__button-text">Пройти заново</span>
-				</button>
-			</div>
-		</section>
+		</div>
+		<div class="card__conrol">
+			<button type="button" class="card__button" id="card__button">
+				<span class="card__button-text">Пройти заново</span>
+			</button>
+		</div>
+	</section>
 </body>
 </html>
